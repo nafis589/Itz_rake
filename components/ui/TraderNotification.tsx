@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { Archivo } from "next/font/google";
 
 interface NotificationProps {
   avatarUrl?: string;
@@ -7,7 +8,7 @@ interface NotificationProps {
   message?: string;
   timeAgo?: string;
 }
-
+const archivo = Archivo({ subsets: ["latin"], weight: ["400", "700"] });
 const TraderNotification: React.FC<NotificationProps> = ({
   avatarUrl = "/boucle.svg", // Avatar par défaut
   userName = "John Doe",
@@ -31,9 +32,15 @@ const TraderNotification: React.FC<NotificationProps> = ({
           <span className="text-sm font-semibold text-gray-900">
             {userName}
           </span>
-          <span className="text-xs text-gray-500">{timeAgo}</span>
+          <span className={`${archivo.className} text-xs text-gray-500`}>
+            {timeAgo}
+          </span>
         </div>
-        <p className="text-sm text-gray-700 leading-snug">{message}</p>
+        <p
+          className={`${archivo.className} text-sm text-gray-700 leading-snug`}
+        >
+          {message}
+        </p>
       </div>
     </div>
   );
