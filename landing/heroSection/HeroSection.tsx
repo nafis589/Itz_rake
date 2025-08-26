@@ -82,7 +82,7 @@ const HeroSection: React.FC = () => {
             </h1>
 
             <p
-              className={`${archivo.className}text-gray-600 text-lg mb-8 max-w-2xl mx-auto`}
+              className={`${archivo.className} text-gray-600 text-lg mb-8 max-w-2xl mx-auto`}
             >
               Découvrez les stratégies, outils et conseils d’un trader
               professionnel pour tirer parti des marchés financiers (Forex,
@@ -105,7 +105,7 @@ const HeroSection: React.FC = () => {
             {/* Décorations */}
             <div className="absolute -right-35 top-12 -translate-y-1/2 flex flex-col items-center pointer-events-none">
               <span className="mb-2 ml-8 text-lg font-semibold text-gray-700">
-                Ecoutez ceci!
+                Regardez ceci!
               </span>
               <Image
                 src="/boucle.svg"
@@ -113,6 +113,7 @@ const HeroSection: React.FC = () => {
                 width={120}
                 height={120}
                 className="select-none"
+                onContextMenu={(e) => e.preventDefault()}
               />
             </div>
 
@@ -131,9 +132,7 @@ const HeroSection: React.FC = () => {
                     onClick={() => setPlay(true)}
                     className="absolute inset-0 flex items-center justify-center bg-transparent bg-opacity-20 hover:bg-opacity-50 transition"
                   >
-                    <div className="w-15 h-15 bg-white bg-opacity-20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-opacity-40 transition-all">
-                      <Youtube size={48} color="gray" />
-                    </div>
+                    <Youtube size={48} color="red" />
                   </button>
                 </div>
               ) : (
