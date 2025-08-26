@@ -1,21 +1,14 @@
 "use client";
 import React, { useState } from "react";
-import {
-  ChevronLeft,
-  ChevronRight,
-  TrendingUp,
-  Signal,
-  User,
-  Briefcase,
-  Lightbulb,
-} from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Archivo } from "next/font/google";
+import Image from "next/image";
 
 interface CardData {
   id: number;
   title: string;
   description: string;
-  icon: React.ReactNode;
+  image: string;
   count: string;
 }
 
@@ -27,7 +20,7 @@ const CareerUIComponent: React.FC = () => {
     {
       id: 1,
       count: "01",
-      icon: <TrendingUp className="w-7 h-7 text-blue-600" />,
+      image: "/formation.svg",
       title: "Formation Trading",
       description:
         "Des formations adaptées aux débutants et traders avancés pour maîtriser les bases et progresser.",
@@ -35,7 +28,7 @@ const CareerUIComponent: React.FC = () => {
     {
       id: 2,
       count: "02",
-      icon: <Signal className="w-7 h-7 text-green-600" />,
+      image: "/trade.svg",
       title: "Signal Trading & Analyses",
       description:
         "Recevez des signaux fiables et des analyses quotidiennes pour optimiser vos prises de décision.",
@@ -43,7 +36,7 @@ const CareerUIComponent: React.FC = () => {
     {
       id: 3,
       count: "03",
-      icon: <User className="w-7 h-7 text-purple-600" />,
+      image: "analysis.svg",
       title: "Coaching 1-to-1",
       description:
         "Un accompagnement personnalisé avec un expert pour accélérer votre progression.",
@@ -51,7 +44,7 @@ const CareerUIComponent: React.FC = () => {
     {
       id: 4,
       count: "04",
-      icon: <Briefcase className="w-7 h-7 text-orange-600" />,
+      image: "/wallet.svg",
       title: "Gestion de Portefeuille",
       description:
         "Une gestion professionnelle et sécurisée de vos investissements (si réglementé).",
@@ -59,7 +52,7 @@ const CareerUIComponent: React.FC = () => {
     {
       id: 5,
       count: "05",
-      icon: <Lightbulb className="w-7 h-7 text-yellow-500" />,
+      image: "/target.svg",
       title: "Stratégies Personnalisées",
       description:
         "Des stratégies de trading conçues selon votre profil et vos objectifs financiers.",
@@ -96,11 +89,14 @@ const CareerUIComponent: React.FC = () => {
           >
             Découvrez nos
             <br />
-            services
+            <span className="relative leading-tight inline-block">
+              <span className="relative z-10">services</span>
+              <span className="absolute left-0 bottom-3 w-full h-4 bg-blue-600"></span>
+            </span>
           </h1>
 
           {/* Lien d’action */}
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center -mb-5">
             <span
               className={`${archivo.className} text-gray-900 mr-4 font-medium`}
             >
@@ -127,11 +123,15 @@ const CareerUIComponent: React.FC = () => {
                     {card.count}
                   </div>
 
-                  {/* Card icon */}
+                  {/* Card image */}
                   <div className="mb-6">
-                    <div className="w-14 h-14 rounded-full bg-gray-50 flex items-center justify-center border-2 border-gray-100">
-                      {card.icon}
-                    </div>
+                    <Image
+                      src={card.image}
+                      alt={card.title}
+                      width={190} // équivalent à w-14
+                      height={190} // équivalent à h-14
+                      className="object-contain"
+                    />
                   </div>
 
                   {/* Card content */}

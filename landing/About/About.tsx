@@ -142,7 +142,7 @@ const About: React.FC = () => {
               <div className="absolute top-24 right-59">
                 <TraderNotification
                   userName="Marie"
-                  message="Merci pour la formati🙌"
+                  message="Merci pour tout  🙌"
                   timeAgo="3h ago"
                 />
               </div>

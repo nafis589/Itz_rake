@@ -9,35 +9,38 @@ interface NotificationProps {
   timeAgo?: string;
 }
 const archivo = Archivo({ subsets: ["latin"], weight: ["400", "700"] });
+
 const TraderNotification: React.FC<NotificationProps> = ({
-  avatarUrl = "/boucle.svg", // Avatar par défaut
+  avatarUrl = "/boucle.svg",
   userName = "John Doe",
   message = "Waouh 😍 Rake est un excellent trader, sa formation m’a vraiment aidé !",
   timeAgo = "il y a 5 min",
 }) => {
   return (
-    <div className="max-w-sm w-full bg-white rounded-2xl shadow-lg p-4 flex items-center gap-3 border border-gray-200">
+    <div className="max-w-sm w-full rounded-3xl bg-white/70 backdrop-blur-md shadow-[0_4px_12px_rgba(0,0,0,0.1)] p-3 flex items-center gap-3 border border-white/40">
       {/* Avatar */}
       <Image
         src={avatarUrl}
         alt={userName}
-        width={10}
-        height={10}
-        className="w-10 h-10 rounded-full object-cover border"
+        width={40}
+        height={40}
+        className="w-10 h-10 rounded-full object-cover"
       />
 
       {/* Content */}
-      <div className="flex-1">
+      <div className="flex-1 min-w-0">
         <div className="flex justify-between items-center">
-          <span className="text-sm font-semibold text-gray-900">
+          <span className="text-[15px] font-semibold text-gray-900 truncate">
             {userName}
           </span>
-          <span className={`${archivo.className} text-xs text-gray-500`}>
+          <span
+            className={`${archivo.className} text-[12px] text-gray-500 whitespace-nowrap`}
+          >
             {timeAgo}
           </span>
         </div>
         <p
-          className={`${archivo.className} text-sm text-gray-700 leading-snug`}
+          className={`${archivo.className} text-[13px] text-gray-800 leading-snug mt-0.5 truncate`}
         >
           {message}
         </p>
