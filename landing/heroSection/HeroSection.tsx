@@ -6,6 +6,7 @@ import { Archivo, Playwrite_MX } from "next/font/google";
 import { useState } from "react";
 import Image from "next/image";
 import { Youtube } from "lucide-react";
+import { motion } from "framer-motion";
 
 const archivo = Archivo({ subsets: ["latin"], weight: ["700"] });
 const playwrite = Playwrite_MX({ weight: ["400"] });
@@ -121,7 +122,7 @@ const HeroSection: React.FC = () => {
             <div className="relative bg-gray-800 rounded-2xl overflow-hidden shadow-2xl w-full max-w-3xl mx-auto">
               {!play ? (
                 // Image de couverture avec bouton play
-                <div className="relative w-full aspect-video">
+                <motion.div className="relative w-full aspect-video">
                   <Image
                     src="/cover.png"
                     alt="Video Cover"
@@ -134,7 +135,7 @@ const HeroSection: React.FC = () => {
                   >
                     <Youtube size={48} color="red" />
                   </button>
-                </div>
+                </motion.div>
               ) : (
                 // Iframe YouTube quand on clique sur Play
                 <div className="aspect-video">

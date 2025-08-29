@@ -10,19 +10,19 @@ const About: React.FC = () => {
   return (
     <div className="min-h-screen py-12 px-4 flex items-center justify-center">
       {/* Container centrée avec border-radius */}
-      <div className="bg-gray-50 rounded-3xl p-12 max-w-6xl w-full">
+      <div className="bg-gray-100 text-black rounded-3xl p-12 max-w-6xl w-full">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <div className="inline-block bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-block border-2 py-1 px-4 rounded-lg font-medium mb-6">
             À propos
           </div>
           <h1
-            className={`${archivo.className} text-4xl font-bold text-gray-900 mb-4`}
+            className={`${archivo.className} text-4xl font-bold text-black mb-4`}
           >
             Un Trader Expérimenté et Transparent
           </h1>
           <p
-            className={`${archivo.className} text-gray-600 text-lg max-w-2xl mx-auto`}
+            className={`${archivo.className} text-black text-lg max-w-2xl mx-auto`}
           >
             Avec plus de 10 ans d’expérience sur les marchés financiers, Rake
             Evrard aide les investisseurs à développer leur capital grâce à une
@@ -135,6 +135,7 @@ const About: React.FC = () => {
                   userName="Alex"
                   message="Waouh 🤩 Rake est vraiment un excellent trader !"
                   timeAgo="2h ago"
+                  avatarUrl="https://api.dicebear.com/9.x/adventurer/svg?seed=Aidan"
                 />
               </div>
 
@@ -144,6 +145,7 @@ const About: React.FC = () => {
                   userName="Marie"
                   message="Merci pour tout  🙌"
                   timeAgo="3h ago"
+                  avatarUrl="https://api.dicebear.com/9.x/adventurer/svg?seed=George"
                 />
               </div>
 
@@ -153,6 +155,7 @@ const About: React.FC = () => {
                   userName="Lucas"
                   message="Analyse très précise 👌"
                   timeAgo="5h ago"
+                  avatarUrl="https://api.dicebear.com/9.x/adventurer/svg?seed=Wyatt"
                 />
               </div>
 
@@ -162,6 +165,7 @@ const About: React.FC = () => {
                   userName="Nina"
                   message="Super accompagnement 💯"
                   timeAgo="6h ago"
+                  avatarUrl="https://api.dicebear.com/9.x/croodles/svg?seed=Liliana"
                 />
               </div>
 
@@ -171,6 +175,7 @@ const About: React.FC = () => {
                   userName="Karim"
                   message="Toujours dispo pour ses élèves 🔥"
                   timeAgo="8h ago"
+                  avatarUrl="https://api.dicebear.com/9.x/big-smile/svg?seed=Katherine"
                 />
               </div>
             </div>

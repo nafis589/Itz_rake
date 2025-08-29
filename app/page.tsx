@@ -1,6 +1,7 @@
 import About from "@/landing/About/About";
 import HeroSection from "@/landing/heroSection/HeroSection";
 import CareerUIComponent from "@/landing/Service/CareerUIComponent";
+import Testimonial from "@/landing/Testimonial/Testimonial";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <HeroSection />
       <About />
       <CareerUIComponent />
+      <Testimonial />
     </div>
   );
 }
