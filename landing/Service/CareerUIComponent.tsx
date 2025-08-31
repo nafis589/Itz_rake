@@ -119,7 +119,7 @@ const CareerUIComponent: React.FC = () => {
                   className="card-brand p-6 min-h-[260px] flex-shrink-0 w-[320px] mx-4"
                 >
                   {/* Card counter */}
-                  <div className="text-sm text-attention font-mono text-right">
+                  <div className="text-sm text-blue-500 font-mono text-right">
                     {card.count}
                   </div>
 
