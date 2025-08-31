@@ -10,10 +10,10 @@ const About: React.FC = () => {
   return (
     <div className="min-h-screen py-12 px-4 flex items-center justify-center">
       {/* Container centrée avec border-radius */}
-      <div className="bg-gray-100 text-black rounded-3xl p-12 max-w-6xl w-full">
+      <div className="bg-brand-light text-black rounded-3xl p-12 max-w-6xl w-full">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <div className="inline-block border-2 py-1 px-4 rounded-lg font-medium mb-6">
+          <div className={`{archivo.className} text-blue-500 inline-block border border-blue-500 py-1 px-4 rounded-lg font-medium mb-6`}>
             À propos
           </div>
           <h1

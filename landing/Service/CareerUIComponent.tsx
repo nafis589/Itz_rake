@@ -78,14 +78,14 @@ const CareerUIComponent: React.FC = () => {
         <div className="w-4/5 bg-white p-12 flex flex-col justify-between">
           {/* Sous-titre */}
           <p
-            className={`${archivo.className} text-sm text-gray-500 mb-4 tracking-wider`}
+            className={`${archivo.className} text-sm text-blue-500 mb-4 tracking-wider`}
           >
             NOS SERVICES
           </p>
 
           {/* Titre principal */}
           <h1
-            className={`${archivo.className} text-7xl font-bold text-gray-900 mb-12 leading-tight`}
+            className={`${archivo.className} text-7xl font-bold text-brand-primary mb-12 leading-tight`}
           >
             Découvrez nos
             <br />
@@ -98,16 +98,16 @@ const CareerUIComponent: React.FC = () => {
           {/* Lien d’action */}
           <div className="flex items-center justify-center -mb-5">
             <span
-              className={`${archivo.className} text-gray-900 mr-4 font-medium`}
+              className={`${archivo.className} text-brand-primary mr-4 font-medium`}
             >
               Voir les services
             </span>
-            <ChevronRight className="w-5 h-5 text-gray-900" />
+            <ChevronRight className="w-5 h-5 text-brand-primary" />
           </div>
         </div>
 
         {/* Right side - Carousel */}
-        <div className="w-1/2 bg-gray-100 p-12 relative flex flex-col items-center justify-center">
+        <div className="w-1/2 bg-brand-light p-12 relative flex flex-col items-center justify-center">
           <div className="overflow-hidden w-full">
             <div
               className="flex transition-transform duration-500 ease-in-out"
@@ -116,10 +116,10 @@ const CareerUIComponent: React.FC = () => {
               {cards.map((card) => (
                 <div
                   key={card.id}
-                  className="bg-white rounded-xl p-6 min-h-[260px] flex-shrink-0 w-[320px] mx-4"
+                  className="card-brand p-6 min-h-[260px] flex-shrink-0 w-[320px] mx-4"
                 >
                   {/* Card counter */}
-                  <div className="text-sm text-gray-400 font-mono text-right">
+                  <div className="text-sm text-attention font-mono text-right">
                     {card.count}
                   </div>
 
@@ -136,12 +136,12 @@ const CareerUIComponent: React.FC = () => {
 
                   {/* Card content */}
                   <h2
-                    className={`${archivo.className} text-lg font-semibold text-gray-900 mb-3`}
+                    className={`${archivo.className} text-lg font-semibold text-brand-primary mb-3`}
                   >
                     {card.title}
                   </h2>
                   <p
-                    className={`${archivo.className} text-gray-600 text-sm leading-relaxed`}
+                    className={`${archivo.className} text-brand-muted text-sm leading-relaxed`}
                   >
                     {card.description}
                   </p>
@@ -155,14 +155,14 @@ const CareerUIComponent: React.FC = () => {
             <button
               onClick={prevCard}
               disabled={currentIndex === 0}
-              className="w-10 h-10 rounded-xl bg-gray-900 text-white flex items-center justify-center hover:bg-gray-800 disabled:opacity-40"
+              className="w-10 h-10 rounded-xl bg-brand-primary text-white flex items-center justify-center hover:bg-opacity-90 disabled:opacity-40 transition-all duration-200"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={nextCard}
               disabled={currentIndex === cards.length - 1}
-              className="w-10 h-10 rounded-xl bg-gray-900 text-white flex items-center justify-center hover:bg-gray-800 disabled:opacity-40"
+              className="w-10 h-10 rounded-xl bg-brand-primary text-white flex items-center justify-center hover:bg-opacity-90 disabled:opacity-40 transition-all duration-200"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -174,7 +174,7 @@ const CareerUIComponent: React.FC = () => {
               <div
                 key={index}
                 className={`w-2 h-2 rounded-full transition-colors ${
-                  index === currentIndex ? "bg-gray-900" : "bg-gray-300"
+                  index === currentIndex ? "bg-gray-900" : "bg-slate-300"
                 }`}
               />
             ))}

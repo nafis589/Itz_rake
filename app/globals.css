@@ -63,37 +63,62 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  
+  /* === FINANCIAL EXCELLENCE PALETTE === */
+  /* Primary Brand Colors */
+  --navy-deep: #0A2540;        /* Bleu Marine Profond - Impact maximum */
+  --royal-blue: #1E40AF;       /* Bleu Royal - Actions & dynamisme */
+  --emerald-success: #10B981;  /* Vert Émeraude - Succès & gains */
+  --amber-attention: #F59E0B;  /* Orange Amber - Attention & alertes */
+  
+  /* Neutral Text Colors */
+  --charcoal: #1F2937;         /* Gris Anthracite - Texte principal */
+  --slate-medium: #6B7280;     /* Gris Moyen - Texte secondaire */
+  --pearl-light: #F8FAFC;      /* Gris Perle - Fond secondaire */
+  --pure-white: #FFFFFF;       /* Blanc pur - Fond principal */
+  
+  /* Gradient Definitions */
+  --gradient-primary: linear-gradient(135deg, var(--royal-blue), #1D4ED8);
+  --gradient-success: linear-gradient(135deg, var(--emerald-success), #059669);
+  --gradient-accent: linear-gradient(90deg, var(--royal-blue));
+  
+  /* Shadow System */
+  --shadow-brand: 0 4px 6px rgba(10, 37, 64, 0.07);
+  --shadow-brand-lg: 0 4px 14px rgba(30, 64, 175, 0.15);
+  --shadow-success: 0 4px 12px rgba(16, 185, 129, 0.15);
+  
+  /* Updated Design System Variables */
+  --background: var(--pure-white);
+  --foreground: var(--charcoal);
+  --card: var(--pure-white);
+  --card-foreground: var(--charcoal);
+  --popover: var(--pure-white);
+  --popover-foreground: var(--charcoal);
+  --primary: var(--navy-deep);
+  --primary-foreground: var(--pure-white);
+  --secondary: var(--pearl-light);
+  --secondary-foreground: var(--charcoal);
+  --muted: var(--pearl-light);
+  --muted-foreground: var(--slate-medium);
+  --accent: var(--royal-blue);
+  --accent-foreground: var(--pure-white);
+  --destructive: #EF4444;
+  --border: #E5E7EB;
+  --input: #F3F4F6;
+  --ring: var(--royal-blue);
+  --chart-1: var(--emerald-success);
+  --chart-2: var(--royal-blue);
+  --chart-3: var(--amber-attention);
+  --chart-4: var(--navy-deep);
+  --chart-5: var(--slate-medium);
+  --sidebar: var(--pure-white);
+  --sidebar-foreground: var(--charcoal);
+  --sidebar-primary: var(--navy-deep);
+  --sidebar-primary-foreground: var(--pure-white);
+  --sidebar-accent: var(--pearl-light);
+  --sidebar-accent-foreground: var(--charcoal);
+  --sidebar-border: #E5E7EB;
+  --sidebar-ring: var(--royal-blue);
 }
 
 .dark {
@@ -136,5 +161,122 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* === PROFESSIONAL UI COMPONENTS === */
+  
+  /* Brand Button System */
+  .btn-primary {
+    @apply bg-gradient-to-br from-blue-700 to-blue-800 text-white px-6 py-3 rounded-full font-medium;
+    @apply transition-all duration-300 ease-out hover:shadow-lg hover:-translate-y-0.5;
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+    background: var(--gradient-primary);
+  }
+  
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #1D4ED8, #2563EB);
+    box-shadow: var(--shadow-brand-lg);
+  }
+  
+  .btn-success {
+    @apply text-white px-6 py-3 rounded-full font-medium;
+    @apply transition-all duration-300 ease-out hover:shadow-lg hover:-translate-y-0.5;
+    @apply focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2;
+    background: var(--gradient-success);
+  }
+  
+  .btn-success:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    box-shadow: var(--shadow-success);
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-slate-300 text-gray-700 px-6 py-3 rounded-full font-medium;
+    @apply transition-all duration-300 ease-out hover:border-slate-400 hover:bg-gray-50;
+    @apply focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2;
+  }
+  
+  /* Typography System */
+  .text-brand-primary {
+    color: var(--navy-deep);
+  }
+  
+  .text-brand-secondary {
+    color: var(--charcoal);
+  }
+  
+  .text-brand-muted {
+    color: var(--slate-medium);
+  }
+  
+  .text-success {
+    color: var(--emerald-success);
+  }
+  
+  .text-attention {
+    color: var(--amber-attention);
+  }
+  
+  /* Background System */
+  .bg-brand-primary {
+    background-color: var(--navy-deep);
+  }
+  
+  .bg-brand-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .bg-brand-light {
+    background-color: var(--pearl-light);
+  }
+  
+  /* Card System */
+  .card-brand {
+    @apply bg-white rounded-2xl p-8;
+    box-shadow: var(--shadow-brand);
+    @apply transition-all duration-300 ease-out hover:shadow-lg;
+  }
+  
+  .card-brand:hover {
+    box-shadow: var(--shadow-brand-lg);
+    transform: translateY(-2px);
+  }
+  
+  /* Interactive Links */
+  .link-brand {
+    color: var(--royal-blue);
+    @apply no-underline border-b border-transparent transition-all duration-200;
+  }
+  
+  .link-brand:hover {
+    border-bottom-color: var(--royal-blue);
+  }
+  
+  /* Notification System */
+  .notification-success {
+    @apply rounded-lg p-4 border-l-4;
+    background-color: rgba(16, 185, 129, 0.1);
+    border-left-color: var(--emerald-success);
+  }
+  
+  .notification-attention {
+    @apply rounded-lg p-4 border-l-4;
+    background-color: rgba(245, 158, 11, 0.1);
+    border-left-color: var(--amber-attention);
+  }
+  
+  /* Badge System */
+  .badge-brand {
+    @apply inline-block border-2 py-1 px-4 rounded-lg font-medium text-sm tracking-wider;
+    border-color: var(--royal-blue);
+    color: var(--royal-blue);
+  }
+  
+  .badge-success {
+    @apply inline-block border-2 py-1 px-4 rounded-lg font-medium text-sm tracking-wider;
+    border-color: var(--emerald-success);
+    color: var(--emerald-success);
   }
 }

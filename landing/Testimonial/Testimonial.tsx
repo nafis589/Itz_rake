@@ -68,8 +68,9 @@ const thirdColumn = testimonials.slice(6, 9);
 
 const Testimonial = () => {
   return (
-    <section className="bg-background my-20 relative">
-      <div className="container z-10 mx-auto">
+    <section className="relative py-16 overflow-hidden">
+      
+      <div className="container relative z-10 mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -79,15 +80,15 @@ const Testimonial = () => {
           className="flex flex-col items-center justify-center max-w-[640px] mx-auto"
         >
           <div className="flex justify-center">
-            <div className={`${archivo.className} border py-1 px-4 rounded-lg text-sm tracking-wider`}>
+            <div className={`${archivo.className} border border-blue-500 py-1 px-4 rounded-lg text-blue-500`}>
               Témoignages
             </div>
           </div>
 
-          <h2 className={`${archivo.className} text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter mt-5 text-center`}>
+          <h2 className={`${archivo.className} text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter mt-5 text-center text-brand-primary`}>
             Ce que disent nos clients
           </h2>
-          <p className={`${archivo.className} text-center mt-5 opacity-75`}>
+          <p className={`${archivo.className} text-center mt-5 text-brand-muted`}>
             Découvrez l’impact de nos formations, signaux et coachings sur la réussite de nos traders.
           </p>
         </motion.div>

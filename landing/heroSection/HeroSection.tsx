@@ -30,32 +30,32 @@ const HeroSection: React.FC = () => {
         <div className="flex items-center space-x-8">
           <div className="flex items-center space-x-2">
             <span
-              className={`${playwrite.className} text-2xl font-bold text-gray-800}`}
+              className={`${playwrite.className} text-2xl font-bold text-brand-primary`}
             >
               Itz_rake!
             </span>
           </div>
 
-          <nav className="hidden md:flex items-center space-x-6 text-sm text-gray-600">
-            <a href="#" className="hover:text-gray-800">
+          <nav className="hidden md:flex items-center space-x-6 text-sm text-brand-muted">
+            <a href="#" className="link-brand transition-colors duration-200">
               What We Do
             </a>
-            <a href="#" className="hover:text-gray-800">
+            <a href="#" className="link-brand transition-colors duration-200">
               Testimonials
             </a>
-            <a href="#" className="hover:text-gray-800">
+            <a href="#" className="link-brand transition-colors duration-200">
               Pricing
             </a>
-            <a href="#" className="hover:text-gray-800">
+            <a href="#" className="link-brand transition-colors duration-200">
               How it Works
             </a>
-            <a href="#" className="hover:text-gray-800">
+            <a href="#" className="link-brand transition-colors duration-200">
               FAQ
             </a>
           </nav>
         </div>
 
-        <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium transition-colors">
+        <button className="btn-success text-sm">
           Join the Waitlist
         </button>
       </header>
@@ -66,7 +66,7 @@ const HeroSection: React.FC = () => {
           {/* Texte */}
           <div className="text-center">
             <h1
-              className={`${archivo.className} text-5xl lg:text-5xl md:w-[800px] font-bold text-gray-800 leading-tight mb-6`}
+              className={`${archivo.className} text-5xl lg:text-6xl md:w-[800px] font-bold text-brand-primary leading-tight mb-6 tracking-tight`}
             >
               <div className="relative inline-block">
                 <span className="relative z-10 px-2 py-2">Investissez</span>
@@ -83,19 +83,19 @@ const HeroSection: React.FC = () => {
             </h1>
 
             <p
-              className={`${archivo.className} text-gray-600 text-lg mb-8 max-w-2xl mx-auto`}
+              className={`${archivo.className} text-brand-secondary text-lg mb-8 max-w-2xl mx-auto leading-relaxed`}
             >
-              Découvrez les stratégies, outils et conseils d’un trader
+              Découvrez les stratégies, outils et conseils d&apos;un trader
               professionnel pour tirer parti des marchés financiers (Forex,
               Crypto, Actions). Transparence, discipline et performance au cœur
               de chaque décision.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-medium transition-colors">
-                Commencer dès aujourd’hui
+              <button className="btn-primary transform hover:scale-105">
+                Commencer dès aujourd&apos;hui
               </button>
-              <button className="border border-gray-300 hover:border-gray-400 text-gray-700 px-6 py-3 rounded-full font-medium transition-colors">
+              <button className="btn-secondary transform hover:scale-105">
                 Voir mes résultats
               </button>
             </div>
@@ -105,7 +105,7 @@ const HeroSection: React.FC = () => {
           <div className="relative w-full max-w-3xl mx-auto">
             {/* Décorations */}
             <div className="absolute -right-35 top-12 -translate-y-1/2 flex flex-col items-center pointer-events-none">
-              <span className="mb-2 ml-8 text-lg font-semibold text-gray-700">
+              <span className="mb-2 ml-8 text-lg font-semibold text-brand-secondary">
                 Regardez ceci!
               </span>
               <Image
@@ -119,7 +119,7 @@ const HeroSection: React.FC = () => {
             </div>
 
             {/* Conteneur vidéo */}
-            <div className="relative bg-gray-800 rounded-2xl overflow-hidden shadow-2xl w-full max-w-3xl mx-auto">
+            <div className="relative bg-brand-primary rounded-2xl overflow-hidden w-full max-w-3xl mx-auto" style={{boxShadow: 'var(--shadow-brand-lg)'}}>
               {!play ? (
                 // Image de couverture avec bouton play
                 <motion.div className="relative w-full aspect-video">
@@ -131,9 +131,11 @@ const HeroSection: React.FC = () => {
                   />
                   <button
                     onClick={() => setPlay(true)}
-                    className="absolute inset-0 flex items-center justify-center bg-transparent bg-opacity-20 hover:bg-opacity-50 transition"
+                    className="absolute inset-0 flex items-center justify-center bg-trasparent bg-opacity-20 hover:bg-opacity-40 transition-all duration-300 group"
                   >
-                    <Youtube size={48} color="red" />
+                    <div className="bg-white rounded-full p-4 group-hover:scale-110 transition-transform duration-300">
+                      <Youtube size={48} color="#EF4444" />
+                    </div>
                   </button>
                 </motion.div>
               ) : (

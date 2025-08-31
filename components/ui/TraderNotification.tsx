@@ -17,7 +17,7 @@ const TraderNotification: React.FC<NotificationProps> = ({
   timeAgo = "il y a 5 min",
 }) => {
   return (
-    <div className="max-w-sm w-full rounded-3xl bg-white/70 backdrop-blur-md shadow-[0_4px_12px_rgba(0,0,0,0.1)] p-3 flex items-center gap-3 border border-white/40">
+    <div className="max-w-sm w-full rounded-3xl bg-white/90 backdrop-blur-md p-3 flex items-center gap-3 border border-gray-100 notification-success" style={{boxShadow: 'var(--shadow-brand)'}}>
       {/* Avatar */}
       <Image
         src={avatarUrl}
@@ -31,17 +31,17 @@ const TraderNotification: React.FC<NotificationProps> = ({
       {/* Content */}
       <div className="flex-1 min-w-0">
         <div className="flex justify-between items-center">
-          <span className="text-[15px] font-semibold text-gray-900 truncate">
+          <span className="text-[15px] font-semibold text-brand-primary truncate">
             {userName}
           </span>
           <span
-            className={`${archivo.className} text-[12px] text-gray-500 whitespace-nowrap`}
+            className={`${archivo.className} text-[12px] text-brand-muted whitespace-nowrap`}
           >
             {timeAgo}
           </span>
         </div>
         <p
-          className={`${archivo.className} text-[13px] text-gray-800 leading-snug mt-0.5 truncate`}
+          className={`${archivo.className} text-[13px] text-brand-secondary leading-snug mt-0.5 truncate`}
         >
           {message}
         </p>
