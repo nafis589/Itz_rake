@@ -1,5 +1,5 @@
 "use client";
-import { TestimonialsColumn } from "@/components/testimonials-columns-1";
+import { TestimonialsColumn } from "@/components/ui/testimonials-columns-1";
 import { motion } from "framer-motion";
 import {Archivo} from "next/font/google"
 
@@ -80,7 +80,7 @@ const Testimonial = () => {
           className="flex flex-col items-center justify-center max-w-[640px] mx-auto"
         >
           <div className="flex justify-center">
-            <div className={`${archivo.className} border border-blue-500 py-1 px-4 rounded-lg text-blue-500`}>
+            <div className={`${archivo.className} badge-brand py-1 px-4`}>
               Témoignages
             </div>
           </div>

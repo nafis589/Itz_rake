@@ -80,7 +80,7 @@
   /* Gradient Definitions */
   --gradient-primary: linear-gradient(135deg, var(--royal-blue), #1D4ED8);
   --gradient-success: linear-gradient(135deg, var(--emerald-success), #059669);
-  --gradient-accent: linear-gradient(90deg, var(--royal-blue));
+  --gradient-accent: linear-gradient(90deg, var(--royal-blue), var(--emerald-success));
   
   /* Shadow System */
   --shadow-brand: 0 4px 6px rgba(10, 37, 64, 0.07);
@@ -278,5 +278,80 @@
     @apply inline-block border-2 py-1 px-4 rounded-lg font-medium text-sm tracking-wider;
     border-color: var(--emerald-success);
     color: var(--emerald-success);
+  }
+
+  /* About Cards Color System */
+  .card-primary-dark {
+    @apply rounded-2xl p-8;
+    background: linear-gradient(135deg, var(--navy-deep), #1e3a5f);
+    box-shadow: var(--shadow-brand-lg);
+    color: white;
+  }
+
+  .card-primary-medium {
+    @apply rounded-2xl p-8;
+    background: linear-gradient(135deg, var(--royal-blue), #3b82f6);
+    box-shadow: var(--shadow-brand);
+    color: white;
+  }
+
+  .card-primary-light {
+    @apply rounded-2xl p-8;
+    background: linear-gradient(135deg, #60a5fa, #93c5fd);
+    box-shadow: var(--shadow-brand);
+    color: var(--navy-deep);
+  }
+
+  .card-primary-subtle {
+    @apply rounded-2xl p-8;
+    background: linear-gradient(135deg, #dbeafe, #f0f9ff);
+    box-shadow: var(--shadow-brand);
+    color: var(--charcoal);
+    border: 1px solid #bfdbfe;
+  }
+
+  /* Text colors for cards */
+  .card-text-white {
+    color: white;
+  }
+
+  .card-text-white-muted {
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .card-text-dark {
+    color: var(--navy-deep);
+  }
+
+  .card-text-dark-muted {
+    color: var(--slate-medium);
+  }
+
+  /* Financial Background Animations */
+  @keyframes financial-float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+  }
+  
+  @keyframes financial-pulse {
+    0%, 100% { opacity: 0.1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.05); }
+  }
+  
+  @keyframes financial-drift {
+    0% { transform: translateX(0px); }
+    100% { transform: translateX(20px); }
+  }
+  
+  .financial-float {
+    animation: financial-float 6s ease-in-out infinite;
+  }
+  
+  .financial-pulse {
+    animation: financial-pulse 4s ease-in-out infinite;
+  }
+  
+  .financial-drift {
+    animation: financial-drift 8s ease-in-out infinite alternate;
   }
 }

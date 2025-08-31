@@ -13,7 +13,7 @@ const About: React.FC = () => {
       <div className="bg-brand-light text-black rounded-3xl p-12 max-w-6xl w-full">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <div className={`{archivo.className} text-blue-500 inline-block border border-blue-500 py-1 px-4 rounded-lg font-medium mb-6`}>
+          <div className={`{archivo.className} badge-brand mb-6`}>
             À propos
           </div>
           <h1
@@ -32,17 +32,17 @@ const About: React.FC = () => {
 
         {/* Features Layout */}
         <div className="space-y-8">
-          {/* 1. Première carte seule */}
-          <div className="bg-white rounded-2xl px-8 pt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          {/* 1. Première carte seule - Bleu Foncé */}
+          <div className="card-primary-medium px-8 pt-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             {/* Texte à gauche */}
             <div>
               <h3
-                className={`${archivo.className} text-xl font-semibold text-gray-900 mb-3`}
+                className={`${archivo.className} text-xl font-semibold card-text-white mb-3`}
               >
                 Spécialiste en Analyse Technique et Fondamentale
               </h3>
-              <p className={`${archivo.className} text-gray-600`}>
-                Une expertise approfondie dans l’étude des tendances, graphiques
+              <p className={`${archivo.className} card-text-white-muted leading-relaxed`}>
+                Une expertise approfondie dans l&apos;étude des tendances, graphiques
                 et indicateurs financiers pour anticiper les mouvements du
                 marché avec précision.
               </p>
@@ -63,15 +63,15 @@ const About: React.FC = () => {
 
           {/* 2. Deux cartes côte à côte */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Carte 1 */}
-            <div className="bg-white rounded-2xl px-8 pt-8 flex flex-col justify-between">
+            {/* Carte 2 - Bleu Moyen */}
+            <div className="card-primary-subtle px-8 pt-8 flex flex-col justify-between">
               <div>
                 <h3
-                  className={`${archivo.className} text-xl font-semibold text-gray-900 mb-3`}
+                  className={`${archivo.className} text-xl font-semibold card-text-dark mb-3`}
                 >
                   Gestion des Risques
                 </h3>
-                <p className={`${archivo.className} text-gray-600`}>
+                <p className={`${archivo.className} card-text-dark leading-relaxed`}>
                   Application de stratégies de money management strictes pour
                   protéger le capital et optimiser la rentabilité à long terme.
                 </p>
@@ -86,17 +86,17 @@ const About: React.FC = () => {
               />
             </div>
 
-            {/* Carte 2 */}
-            <div className="relative bg-white rounded-2xl px-8 pt-8 flex flex-col justify-between overflow-hidden">
+            {/* Carte 3 - Bleu Clair */}
+            <div className="relative card-primary-light px-8 pt-8 flex flex-col justify-between overflow-hidden">
               <div>
                 <h3
-                  className={`${archivo.className} text-xl font-semibold text-gray-900 mb-3`}
+                  className={`${archivo.className} text-xl font-semibold card-text-white mb-3`}
                 >
                   Reconnu Internationalement
                 </h3>
-                <p className={`${archivo.className} text-gray-600`}>
+                <p className={`${archivo.className} card-text-white-muted leading-relaxed`}>
                   Intervenant régulier sur plusieurs plateformes de trading et
-                  suivi par une communauté d’investisseurs dans plus de 20 pays.
+                  suivi par une communauté d&apos;investisseurs dans plus de 20 pays.
                 </p>
               </div>
 
@@ -111,16 +111,16 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          {/* 3. Dernière carte seule */}
-          <div className="bg-white rounded-2xl p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* 4. Dernière carte seule - Bleu Très Clair */}
+          <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Texte à gauche */}
             <div className="max-w-md">
               <h3
-                className={`${archivo.className} text-xl font-semibold text-gray-900 mb-3`}
+                className={`${archivo.className} text-xl font-semibold card-text-dark mb-3`}
               >
                 Formation et Accompagnement
               </h3>
-              <p className={`${archivo.className} text-gray-600`}>
+              <p className={`${archivo.className} card-text-dark-muted leading-relaxed`}>
                 Propose des formations personnalisées pour aider les débutants
                 et professionnels à maîtriser les bases du trading et développer
                 leur autonomie financière.
