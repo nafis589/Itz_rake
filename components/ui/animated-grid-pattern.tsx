@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
@@ -31,10 +31,17 @@ export function AnimatedGridPattern({
   repeatDelay = 0.5,
   ...props
 }: AnimatedGridPatternProps) {
-  const id = useId();
+  const [id, setId] = useState<string>("");
   const containerRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [squares, setSquares] = useState<Array<{id: number; pos: number[]}>>([]);
+  const [isClient, setIsClient] = useState(false);
+
+  // Generate ID only on client side to avoid hydration mismatch
+  useEffect(() => {
+    setId(`animated-grid-pattern-${Math.random().toString(36).substr(2, 9)}`);
+    setIsClient(true);
+  }, []);
 
   const getPos = useCallback(() => {
     return [
@@ -94,6 +101,21 @@ export function AnimatedGridPattern({
       }
     };
   }, []);
+
+  // Don't render on server to avoid hydration mismatch
+  if (!isClient || !id) {
+    return (
+      <svg
+        ref={containerRef}
+        aria-hidden="true"
+        className={cn(
+          "pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30 stroke-gray-400/30",
+          className,
+        )}
+        {...props}
+      />
+    );
+  }
 
   return (
     <svg

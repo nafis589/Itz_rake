@@ -307,7 +307,7 @@
     background: linear-gradient(135deg, #dbeafe, #f0f9ff);
     box-shadow: var(--shadow-brand);
     color: var(--charcoal);
-    border: 1px solid #bfdbfe;
+    
   }
 
   /* Text colors for cards */

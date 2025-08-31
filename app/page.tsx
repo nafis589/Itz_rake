@@ -5,6 +5,7 @@ import Testimonial from "@/landing/Testimonial/Testimonial";
 import RuixenFeaturedImageSection from "@/components/ui/ruixen-featured-image-section";
 import CalenderSection from "@/landing/calender/calenderSection";
 
+
 export default function Home() {
   return (
     <div className="bg-white">
@@ -14,7 +15,6 @@ export default function Home() {
       <RuixenFeaturedImageSection />
       <Testimonial />
       <CalenderSection />
-      
       
     </div>
   );

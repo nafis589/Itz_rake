@@ -3,23 +3,27 @@
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Archivo } from "next/font/google";
+
 
 const dayNames = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+const archivo = Archivo({ subsets: ["latin"], weight: ["400", "700"] });
 
 const CalendarDay: React.FC<{ day: number | string; isHeader?: boolean }> = ({
   day,
   isHeader,
 }) => {
-  const randomBgWhite =
-    !isHeader && Math.random() < 0.3
-      ? "bg-brand-primary text-white "
-      : "text-brand-muted";
+  // Use deterministic highlight based on day number to avoid hydration issues
+  const shouldHighlight = !isHeader && typeof day === 'number' && (day % 7 === 3 || day % 11 === 2);
+  const bgClass = shouldHighlight
+    ? "bg-brand-primary text-white "
+    : "text-brand-muted";
 
   return (
     <div
       className={`col-span-1 row-span-1 flex h-8 w-8 items-center justify-center ${
         isHeader ? "" : "rounded-xl"
-      } ${randomBgWhite}`}
+      } ${bgClass}`}
     >
       <span className={`font-medium ${isHeader ? "text-xs" : "text-sm"}`}>
         {day}
@@ -29,6 +33,7 @@ const CalendarDay: React.FC<{ day: number | string; isHeader?: boolean }> = ({
 };
 
 export function Calendar() {
+  
   const currentDate = new Date();
   const currentMonth = currentDate.toLocaleString("default", { month: "long" });
   const currentYear = currentDate.getFullYear();
@@ -65,10 +70,10 @@ export function Calendar() {
     <BentoCard height="h-auto" linkTo={bookingLink}>
       <div className=" grid h-full  gap-5">
         <div className="">
-          <h2 className="mb-4 text-lg md:text-3xl font-semibold text-brand-primary">
+          <h2 className={`${archivo.className} mb-4 text-lg md:text-3xl font-semibold text-brand-primary`}>
             Des questions sur le trading ?
           </h2>
-          <p className="mb-2 text-xs md:text-md text-brand-muted">
+          <p className={`${archivo.className} mb-2 text-xs md:text-md text-brand-muted`}>
             N&apos;hésitez pas à me contacter !
           </p>
           <Button className="btn-primary mt-3 rounded-2xl">Réserver maintenant</Button>
