@@ -68,7 +68,7 @@ const thirdColumn = testimonials.slice(6, 9);
 
 const Testimonial = () => {
   return (
-    <section className="relative py-16 overflow-hidden">
+    <section id="testimonials" className="relative py-12 sm:py-16 overflow-hidden px-4">
       
       <div className="container relative z-10 mx-auto">
         {/* Header */}
@@ -80,25 +80,25 @@ const Testimonial = () => {
           className="flex flex-col items-center justify-center max-w-[640px] mx-auto"
         >
           <div className="flex justify-center">
-            <div className={`${archivo.className} badge-brand py-1 px-4`}>
+            <div className={`${archivo.className} badge-brand py-1 px-3 sm:px-4`}>
               Témoignages
             </div>
           </div>
 
-          <h2 className={`${archivo.className} text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter mt-5 text-center text-brand-primary`}>
+          <h2 className={`${archivo.className} text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter mt-4 sm:mt-5 text-center text-brand-primary`}>
             Ce que disent nos clients
           </h2>
-          <p className={`${archivo.className} text-center mt-5 text-brand-muted`}>
-            Découvrez l’impact de nos formations, signaux et coachings sur la réussite de nos traders.
+          <p className={`${archivo.className} text-center mt-3 sm:mt-5 text-brand-muted text-sm sm:text-base leading-relaxed`}>
+            Découvrez l&apos;impact de nos formations, signaux et coachings sur la réussite de nos traders.
           </p>
         </motion.div>
 
         {/* Columns */}
-        <div className="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
+        <div className="flex justify-center gap-3 sm:gap-4 lg:gap-6 mt-8 sm:mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[600px] sm:max-h-[740px] overflow-hidden">
           <TestimonialsColumn testimonials={firstColumn} duration={15} />
           <TestimonialsColumn
             testimonials={secondColumn}
-            className="hidden md:block"
+            className="hidden sm:block"
             duration={19}
           />
           <TestimonialsColumn

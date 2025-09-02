@@ -13,8 +13,8 @@ export const Component = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-   <footer className="my-8 px- max-w-5xl text-base-content mx-auto">
-      <div className="relative bg-white rounded-3xl max-w-5xl mx-auto px-4 py-10 flex flex-col md:flex-row justify-between items-center gap-6">
+   <footer className="my-6 sm:my-8 px-4 sm:px-8 max-w-6xl text-base-content mx-auto">
+      <div className="relative bg-brand-primary rounded-2xl sm:rounded-3xl max-w-5xl mx-auto px-4 sm:px-6 py-8 sm:py-10 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="hidden md:block absolute -top-4 -left-8 w-[80px] h-[36px] scale-75">
           {tape}
         </div>
@@ -25,50 +25,46 @@ export const Component = () => {
           <div className='flex flex-col items-start gap-2'>
           <Link
             href="/"
-            className="flex flex-row gap-1 items-center justify-start text-2xl font-display font-extrabold text-base-content"
+            className="flex flex-row gap-1 items-center justify-start text-xl sm:text-2xl font-display font-extrabold text-white"
           >
             
-            ActivationLed
+            Itz_rake!
           </Link>
-          <p className='text-neutral/50 font-medium text-base w-full md:w-4/5'>Behavioral Designed Activation Journeys for PLG SaaS to lift Aha! moments by 23%.</p>
+          <p className='text-white/80 font-medium text-sm sm:text-base w-full md:w-4/5 leading-relaxed'>Expert trader avec plus de 10 ans d&apos;expérience. Formation, signaux et conseils pour optimiser vos investissements.</p>
           </div>
 
           <div className='flex flex-col md:mx-4 md:flex-row gap-2 md:gap-20 items-start md:items-start'>
 
           <div className='flex flex-col gap-1 md:gap-4'>
-          <h4 className='uppercase font-display text-md text-neutral/50 font-semibold'>Resources</h4>
+          <h4 className='uppercase font-display text-md text-white/70 font-semibold'>Formation</h4>
           <div className="flex flex-wrap md:flex-col gap-2 text-sm text-neutral items-start ">
-            <Link className='text-neutral/50 whitespace-nowrap font-medium' href="/resources/freebies">Freebies & Audits</Link>
-            <Link className='text-neutral/50 whitespace-nowrap font-medium' href="/resources/tools">Tools</Link>
-            <Link className='text-neutral/50 whitespace-nowrap font-medium' href="/resources/behavior-principles">Psychology</Link>
-            <Link className='pointer-events-none text-neutral/50 whitespace-nowrap font-medium' href="/resources/blog">Blog <span className='inline-flex ml-1 py-0.5 px-3 bg-base-300 text-xs rounded-xl -rotate-3'>soon</span> </Link>
-            <Link className='pointer-events-none text-neutral/50 whitespace-nowrap font-medium' href="/resources/components">Components <span className='inline-flex ml-1 py-0.5 px-3 bg-base-300 text-xs rounded-xl -rotate-3'>soon</span> </Link>
-            <Link className='pointer-events-none text-neutral/50 whitespace-nowrap font-medium' href="/resources/playbooks">Playbooks <span className='inline-flex ml-1 py-0.5 px-3 bg-base-300 text-xs rounded-xl rotate-3'>soon</span></Link>
+            <Link className='text-white/70 hover:text-white whitespace-nowrap font-medium' href="/formation/debutant">Guide Débutant</Link>
+            <Link className='text-white/70 hover:text-white whitespace-nowrap font-medium' href="/formation/strategies">Stratégies</Link>
+            <Link className='text-white/70 hover:text-white whitespace-nowrap font-medium' href="/formation/analyse-technique">Analyse Technique</Link>
+            <Link className='text-white/70 hover:text-white whitespace-nowrap font-medium' href="/formation/gestion-risque">Gestion du Risque</Link>
+            <Link className='pointer-events-none text-white/50 whitespace-nowrap font-medium' href="/formation/masterclass">Masterclass <span className='inline-flex ml-1 py-0.5 px-3 bg-white/20 text-xs rounded-xl -rotate-3'>bientôt</span> </Link>
           </div>
           </div>
 
           <div className='hidden md:flex flex-col gap-1 md:gap-4'>
-          <h4 className='uppercase whitespace-nowrap font-display text-md text-neutral/50 font-semibold'>Company <span className='inline-flex  ml-1 py-0.5 px-3 bg-base-300 text-xs rounded-xl rotate-3'>soon</span></h4>
+          <h4 className='uppercase whitespace-nowrap font-display text-md text-white/70 font-semibold'>Services</h4>
           <div className="flex gap-2 flex-wrap md:flex-col text-sm text-neutral items-start ">
-            <Link className='pointer-events-none text-neutral/50 whitespace-nowrap font-medium' href="/company/mission">Mission</Link>
-            <Link className='pointer-events-none text-neutral/50 whitespace-nowrap font-medium' href="/company/ecosystem">SaaS Ecosystem</Link>
-            <Link className='pointer-events-none text-neutral/50 whitespace-nowrap font-medium' href="/company/affiliates">Affiliate Program</Link>
-            <Link className='pointer-events-none text-neutral/50 whitespace-nowrap font-medium' href="/company/referrals">Referral Program</Link>
-            <Link className='pointer-events-none text-neutral/50 whitespace-nowrap font-medium' href="/company/partners">Partners</Link>
-            <Link className='pointer-events-none text-neutral/50 whitespace-nowrap font-medium' href="/company/about-us">About Us</Link>
+            <Link className='text-white/70 hover:text-white whitespace-nowrap font-medium' href="/services/signaux">Signaux Trading</Link>
+            <Link className='text-white/70 hover:text-white whitespace-nowrap font-medium' href="/services/coaching">Coaching 1-to-1</Link>
+            <Link className='text-white/70 hover:text-white whitespace-nowrap font-medium' href="/services/portefeuille">Gestion Portefeuille</Link>
+            <Link className='pointer-events-none text-white/50 whitespace-nowrap font-medium' href="/services/community">Communauté VIP <span className='inline-flex ml-1 py-0.5 px-3 bg-white/20 text-xs rounded-xl rotate-3'>bientôt</span></Link>
+            <Link className='text-white/70 hover:text-white whitespace-nowrap font-medium' href="/about">À propos</Link>
           </div>
           </div>
           
           <div className='hidden md:flex flex-col gap-4'>
-          <h4 className='uppercase whitespace-nowrap font-display text-md text-neutral/50 font-semibold'>Compare <span className='inline-flex  ml-1 py-0.5 px-3 bg-base-300 text-xs rounded-xl rotate-3'>soon</span></h4>
+          <h4 className='uppercase whitespace-nowrap font-display text-md text-white/70 font-semibold'>Ressources</h4>
           <div className="flex flex-col gap-2 text-sm text-neutral items-start ">
-            <Link className='pointer-events-none text-neutral/50 whitespace-nowrap font-medium' href="/legal/privacy-policy">DaaS</Link>
-            <Link className='pointer-events-none text-neutral/50 whitespace-nowrap font-medium' href="/legal/tos">PLG Boutique</Link>
-            <Link className='pointer-events-none text-neutral/50 whitespace-nowrap font-medium' href="/legal/tos">ProductLed</Link>
-            <Link className='pointer-events-none text-neutral/50 whitespace-nowrap font-medium' href="/legal/tos">Vulnabyl</Link>
-            <Link className='pointer-events-none text-neutral/50 whitespace-nowrap font-medium' href="/pricing">GrowthMates</Link>
-            <Link className='pointer-events-none text-neutral/50 whitespace-nowrap font-medium' href="/pricing">DelightPath</Link>
-            <Link className='pointer-events-none text-neutral/50 whitespace-nowrap font-medium' href="/pricing"></Link>
+            <Link className='text-white/70 hover:text-white whitespace-nowrap font-medium' href="/ressources/analyses">Analyses Marchés</Link>
+            <Link className='text-white/70 hover:text-white whitespace-nowrap font-medium' href="/ressources/calendrier">Calendrier Éco</Link>
+            <Link className='text-white/70 hover:text-white whitespace-nowrap font-medium' href="/ressources/outils">Outils Gratuits</Link>
+            <Link className='text-white/70 hover:text-white whitespace-nowrap font-medium' href="/ressources/glossaire">Glossaire</Link>
+            <Link className='pointer-events-none text-white/50 whitespace-nowrap font-medium' href="/ressources/newsletter">Newsletter <span className='inline-flex ml-1 py-0.5 px-3 bg-white/20 text-xs rounded-xl rotate-3'>bientôt</span></Link>
           </div>
           </div>
         </div>
@@ -78,35 +74,35 @@ export const Component = () => {
       <div className="my-3 px-4 md:px-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-sm text-neutral">
         <div className="flex flex-col sm:flex-row gap-2 sm:gap-8 items-start sm:items-center">
           <p className="whitespace-nowrap">
-            ©{currentYear} Rake Evrard. All rights reserved.
+            ©{currentYear} Rake Evrard - Expert Trader. Tous droits réservés.
           </p>
           <div className="flex flex-row gap-4">
-            <Link href="/legal/privacy-policy">Privacy Policy</Link>
-            <Link href="/legal/tos">Terms &#38; Co</Link>
-            <Link href="https://www.linkedin.com/in/radu-a-popescu/">
-              Radu Popescu
+            <Link href="/legal/confidentialite">Politique de Confidentialité</Link>
+            <Link href="/legal/conditions">Conditions d&apos;Utilisation</Link>
+            <Link href="/contact">
+              Contact
             </Link>
           </div>
         </div>
 
         <div className="flex gap-4 items-center">
           <a
-            href="https://www.linkedin.com/in/radu-a-popescu/"
+            href="https://www.linkedin.com/in/rake-evrard/"
             target="_blank"
             rel="nofollow noopener"
-            aria-label="Radu Popescu, Founder of ActivationLed Linkedin"
-            className="hover:text-gray-900"
+            aria-label="Rake Evrard, Expert Trader - LinkedIn"
+            className="hover:text-white transition-colors"
           >
-            <Linkedin className="w-5 h-5 fill-neutral" />
+            <Linkedin className="w-5 h-5 fill-white hover:fill-white/80" />
           </a>
           <a
-            href="https://x.com/activation_guy"
+            href="https://x.com/itzrake_trader"
             target="_blank"
             rel="nofollow noopener"
-            aria-label="X (formerly Twitter)"
-            className="hover:text-gray-900"
+            aria-label="Itz_rake! - X (Twitter)"
+            className="hover:text-white transition-colors"
           >
-            <Twitter className="w-5 h-5 fill-neutral" />
+            <Twitter className="w-5 h-5 fill-white hover:fill-white/80" />
           </a>
         </div>
       </div>
