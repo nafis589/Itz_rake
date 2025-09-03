@@ -99,7 +99,10 @@
   --color-color-secondary-light: var(----color-secondary-light);
   --color-color-primary-light: var(----color-primary-light);
   --color-color-accent-light: var(----color-accent-light);
-  --color-color-hightlight-light: var(----color-hightlight-light)
+  --color-color-hightlight-light: var(----color-hightlight-light);
+  
+  /* Tiles colors */
+  --tile: var(--royal-blue);
 }
 
 :root {

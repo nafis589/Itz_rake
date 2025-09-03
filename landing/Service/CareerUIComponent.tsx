@@ -73,7 +73,7 @@ const CareerUIComponent: React.FC = () => {
 
   return (
     <div id="services" className="min-h-screen p-4 sm:p-6 lg:p-8">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:h-[600px] rounded-xl overflow-hidden bg-white shadow-lg">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:h-[600px] rounded-xl overflow-hidden bg-white">
         {/* Left side - Text */}
         <div className="w-full lg:w-4/5 bg-white p-6 sm:p-8 lg:p-12 flex flex-col justify-between">
           {/* Sous-titre */}
@@ -88,7 +88,7 @@ const CareerUIComponent: React.FC = () => {
             className={`${archivo.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-brand-primary mb-6 sm:mb-8 lg:mb-12 leading-tight`}
           >
             <span id="formation" className="block">Découvrez nos</span>
-            <br />
+            
             <span className="relative leading-tight inline-block">
               <span className="relative z-10">services</span>
               <span className="absolute left-0 bottom-1 sm:bottom-2 lg:bottom-3 w-full h-2 sm:h-3 lg:h-4 bg-blue-600"></span>
