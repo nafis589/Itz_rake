@@ -206,7 +206,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
   }
 }
 
@@ -399,5 +399,19 @@
 
   .financial-drift {
     animation: financial-drift 8s ease-in-out infinite alternate;
+  }
+
+  /* Animation pour le soulignement du titre services */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: left center;
+    }
+    to {
+      opacity: 1;
+      transform: scaleX(1);
+      transform-origin: left center;
+    }
   }
 }

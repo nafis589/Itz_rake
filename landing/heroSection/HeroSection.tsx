@@ -1,20 +1,53 @@
 "use client";
 import React from "react";
 import { Tiles } from "@/components/ui/tiles";
-import { Archivo, Playwrite_MX } from "next/font/google";
+import CardNav from "@/components/ui/CardNav";
+import { Archivo } from "next/font/google";
 import { useState } from "react";
 import Image from "next/image";
-import { Youtube, Menu, X } from "lucide-react";
+import { Youtube } from "lucide-react";
 import { motion } from "framer-motion";
 
 const archivo = Archivo({ subsets: ["latin"], weight: ["400", "700"] });
-const playwrite = Playwrite_MX({ weight: ["400"] });
 
 const HeroSection: React.FC = () => {
   const [play, setPlay] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Configuration pour CardNav
+  const navItems = [
+    {
+      label: "Services",
+      bgColor: "#0A2540", // Navy deep de votre design system
+      textColor: "#fff",
+      links: [
+        { label: "Formation Trading", href: "#formation", ariaLabel: "Formation Trading" },
+        { label: "Signaux Trading", href: "#services", ariaLabel: "Signaux Trading" },
+        { label: "Coaching 1-to-1", href: "#coaching", ariaLabel: "Coaching Personnel" }
+      ]
+    },
+    {
+      label: "Ressources", 
+      bgColor: "#1E40AF", // Royal blue de votre design system
+      textColor: "#fff",
+      links: [
+        { label: "Analyses Marchés", href: "#analyses", ariaLabel: "Analyses des Marchés" },
+        { label: "Outils Gratuits", href: "#outils", ariaLabel: "Outils de Trading" },
+        { label: "Glossaire", href: "#glossaire", ariaLabel: "Glossaire Trading" }
+      ]
+    },
+    {
+      label: "Contact",
+      bgColor: "#10B981", // Emerald success de votre design system
+      textColor: "#fff",
+      links: [
+        { label: "Réserver Session", href: "#contact", ariaLabel: "Réserver une Session" },
+        { label: "À Propos", href: "#about", ariaLabel: "À Propos de Rake" },
+        { label: "Témoignages", href: "#testimonials", ariaLabel: "Témoignages Clients" }
+      ]
+    }
+  ];
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen overflow-x-hidden">
       {/* Tiles Background */}
       <div className="absolute inset-0 w-full h-full">
         <Tiles 
@@ -25,107 +58,26 @@ const HeroSection: React.FC = () => {
         />
       </div>
       
+      {/* CardNav - Fixed at top */}
+      <div className="absolute top-0 left-0 right-0 z-20 w-full">
+        <CardNav
+          logo="/logo.svg"
+          logoAlt="Itz_rake! Logo"
+          items={navItems}
+          baseColor="#000"
+          menuColor="#fff"
+          buttonBgColor="#0A2540"
+          buttonTextColor="#fff"
+          ease="power3.out"
+          className="w-full"
+        />
+      </div>
+      
       {/* Content Overlay */}
       <div className="relative z-10">
-        {/* Header */}
-      <header className="flex items-center justify-between px-4 sm:px-6 py-4 max-w-7xl mx-auto">
-        <div className="flex items-center space-x-4 sm:space-x-8">
-          <div className="flex items-center space-x-2">
-            <span
-              className={`${playwrite.className} text-xl sm:text-2xl font-bold text-brand-primary`}
-            >
-              Itz_rake!
-            </span>
-          </div>
-
-          <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6 text-sm text-brand-muted">
-            <a href="#services" className="link-brand transition-colors duration-200 hover:text-brand-primary">
-              Services
-            </a>
-            <a href="#testimonials" className="link-brand transition-colors duration-200 hover:text-brand-primary">
-              Témoignages
-            </a>
-            <a href="#about" className="link-brand transition-colors duration-200 hover:text-brand-primary">
-              À propos
-            </a>
-            <a href="#formation" className="link-brand transition-colors duration-200 hover:text-brand-primary">
-              Formation
-            </a>
-            <a href="#contact" className="link-brand transition-colors duration-200 hover:text-brand-primary">
-              Contact
-            </a>
-          </nav>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <button className="btn-primary text-xs sm:text-sm px-3 sm:px-6 py-2 sm:py-3">
-            <span className="hidden sm:inline">Rejoindre la formation</span>
-            <span className="sm:hidden">Formation</span>
-          </button>
-          
-          {/* Mobile menu button */}
-          <button
-            className="lg:hidden p-2 text-brand-primary"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-      </header>
-
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="lg:hidden bg-white border-b border-gray-200 shadow-lg"
-        >
-          <nav className="max-w-7xl mx-auto px-4 py-4">
-            <div className="flex flex-col space-y-4">
-              <a 
-                href="#services" 
-                className="text-brand-muted hover:text-brand-primary transition-colors duration-200 py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Services
-              </a>
-              <a 
-                href="#testimonials" 
-                className="text-brand-muted hover:text-brand-primary transition-colors duration-200 py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Témoignages
-              </a>
-              <a 
-                href="#about" 
-                className="text-brand-muted hover:text-brand-primary transition-colors duration-200 py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                À propos
-              </a>
-              <a 
-                href="#formation" 
-                className="text-brand-muted hover:text-brand-primary transition-colors duration-200 py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Formation
-              </a>
-              <a 
-                href="#contact" 
-                className="text-brand-muted hover:text-brand-primary transition-colors duration-200 py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Contact
-              </a>
-            </div>
-          </nav>
-        </motion.div>
-      )}
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 lg:py-16">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-12 lg:pb-16">
         <div className="flex flex-col items-center gap-8 sm:gap-12 text-center">
           {/* Texte */}
           <div className="text-center">

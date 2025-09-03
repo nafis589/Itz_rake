@@ -1,14 +1,116 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { Archivo } from "next/font/google";
 import TraderNotification from "@/components/ui/TraderNotification";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Register ScrollTrigger plugin
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const archivo = Archivo({ subsets: ["latin"], weight: ["400", "700"] });
 
 const About: React.FC = () => {
+  const phoneImageRef = useRef<HTMLDivElement>(null);
+  const umbrellaImageRef = useRef<HTMLImageElement>(null);
+  const earthImageRef = useRef<HTMLImageElement>(null);
+  const notificationsRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animation 1: Phone image - slide up from bottom
+      if (phoneImageRef.current) {
+        gsap.set(phoneImageRef.current, { y: 100, opacity: 0 });
+        
+        gsap.to(phoneImageRef.current, {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: phoneImageRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        });
+      }
+
+      // Animation 2: Umbrella image - slide up from bottom with rotation
+      if (umbrellaImageRef.current) {
+        gsap.set(umbrellaImageRef.current, { y: 120, opacity: 0, rotation: -15, scale: 0.9 });
+        
+        gsap.to(umbrellaImageRef.current, {
+          y: 0,
+          opacity: 1,
+          rotation: 0,
+          scale: 1,
+          duration: 1.3,
+          ease: "back.out(1.4)",
+          scrollTrigger: {
+            trigger: umbrellaImageRef.current,
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse"
+          }
+        });
+      }
+
+      // Animation 3: Earth image - slide in from bottom-right (partial visibility)
+      if (earthImageRef.current) {
+        gsap.set(earthImageRef.current, { x: 100, y: 100, opacity: 0, scale: 0.8 });
+        
+        gsap.to(earthImageRef.current, {
+          x: 0,
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1.4,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: earthImageRef.current,
+            start: "top 85%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse"
+          }
+        });
+      }
+
+      // Animation 4: Trader notifications - appear consecutively
+      if (notificationsRef.current) {
+        const notifications = notificationsRef.current.querySelectorAll('.trader-notification');
+        
+        gsap.set(notifications, { y: 30, opacity: 0, scale: 0.9 });
+        
+        gsap.to(notifications, {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.6,
+          stagger: {
+            amount: 1.5, // Total time for all animations
+            from: "start"
+          },
+          ease: "back.out(1.7)",
+          scrollTrigger: {
+            trigger: notificationsRef.current,
+            start: "top 75%",
+            end: "bottom 25%",
+            toggleActions: "play none none reverse"
+          }
+        });
+      }
+    }, containerRef);
+
+    return () => ctx.revert(); // Cleanup
+  }, []);
+
   return (
-    <div id="about" className="min-h-screen py-8 sm:py-12 px-4 flex items-center justify-center">
+    <div id="about" className="min-h-screen py-8 sm:py-12 px-4 flex items-center justify-center" ref={containerRef}>
       {/* Container centrée avec border-radius */}
       <div className="bg-brand-light text-black rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 max-w-6xl w-full">
         {/* Header Section */}
@@ -49,7 +151,7 @@ const About: React.FC = () => {
             </div>
 
             {/* Espace réservé pour l'image à droite */}
-            <div className="flex justify-center items-center order-1 md:order-2">
+            <div className="flex justify-center items-center order-1 md:order-2" ref={phoneImageRef}>
               <Image
                 src="/phone.svg"
                 alt="phone"
@@ -77,6 +179,7 @@ const About: React.FC = () => {
                 </p>
               </div>
               <Image
+                ref={umbrellaImageRef}
                 src="/umbrella.svg"
                 width={250}
                 height={250}
@@ -101,6 +204,7 @@ const About: React.FC = () => {
               </div>
 
               <Image
+                ref={earthImageRef}
                 src="/earth.svg"
                 width={300}
                 height={300}
@@ -128,9 +232,9 @@ const About: React.FC = () => {
             </div>
 
             {/* Notifications à droite */}
-            <div className="relative h-64 sm:h-72 order-1 lg:order-2">
+            <div className="relative h-64 sm:h-72 order-1 lg:order-2" ref={notificationsRef}>
               {/* 1ère notif en haut à droite */}
-              <div className="absolute top-0 right-2 sm:right-4">
+              <div className="absolute top-0 right-2 sm:right-4 trader-notification">
                 <TraderNotification
                   userName="Alex"
                   message="Waouh 🤩 Rake est vraiment un excellent trader !"
@@ -140,7 +244,7 @@ const About: React.FC = () => {
               </div>
 
               {/* 2ème notif en dessous et un peu à gauche - masquée sur mobile */}
-              <div className="hidden sm:block absolute top-20 sm:top-24 right-32 sm:right-59">
+              <div className="hidden sm:block absolute top-20 sm:top-24 right-32 sm:right-59 trader-notification">
                 <TraderNotification
                   userName="Marie"
                   message="Merci pour tout  🙌"
@@ -150,7 +254,7 @@ const About: React.FC = () => {
               </div>
 
               {/* 3ème notif à côté */}
-              <div className="absolute top-16 sm:top-24 right-0">
+              <div className="absolute top-16 sm:top-24 right-0 trader-notification">
                 <TraderNotification
                   userName="Lucas"
                   message="Analyse très précise 👌"
@@ -160,7 +264,7 @@ const About: React.FC = () => {
               </div>
 
               {/* 4ème notif un peu plus bas */}
-              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-10">
+              <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-10 trader-notification">
                 <TraderNotification
                   userName="Nina"
                   message="Super accompagnement 💯"
@@ -170,7 +274,7 @@ const About: React.FC = () => {
               </div>
 
               {/* 5ème notif en bas à gauche - masquée sur mobile */}
-              <div className="hidden sm:block absolute bottom-6 sm:bottom-8 -left-20 sm:-left-30">
+              <div className="hidden sm:block absolute bottom-6 sm:bottom-8 -left-20 sm:-left-30 trader-notification">
                 <TraderNotification
                   userName="Karim"
                   message="Toujours dispo pour ses élèves 🔥"

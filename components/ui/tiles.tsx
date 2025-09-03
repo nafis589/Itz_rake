@@ -32,7 +32,7 @@ export function Tiles({
     <div 
       className={cn(
         "relative z-0 flex w-full h-full justify-center",
-        "[mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]",
+        "[mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]",
         "mask-repeat-none mask-cover",
         className
       )}
