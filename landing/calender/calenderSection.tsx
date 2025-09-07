@@ -32,7 +32,7 @@ const CalenderSection = () => {
 
         {/* Calendar Section */}
         <div className="flex justify-center">
-          <div className="p-4 sm:p-6 lg:p-8 max-w-fit">
+          <div className="p-4 sm:p-6 lg:p-8 w-full max-w-[400px] sm:max-w-[450px] md:max-w-[500px] lg:max-w-fit">
             <Calendar />
           </div>
         </div>

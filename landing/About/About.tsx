@@ -85,7 +85,7 @@ const About: React.FC = () => {
 
             {/* Carte 3 - Bleu Clair */}
             <div className="relative card-primary-light px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 flex flex-col justify-between overflow-hidden min-h-[280px] sm:min-h-[320px]">
-              <div>
+              <div className="relative z-10 sm:z-auto">
                 <h3
                   className={`${archivo.className} text-lg sm:text-xl font-semibold card-text-white mb-3`}
                 >
@@ -102,7 +102,7 @@ const About: React.FC = () => {
                 width={300}
                 height={300}
                 alt="Illustration"
-                className="absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 w-64 h-64 sm:w-80 sm:h-80 lg:w-[350px] lg:h-[350px]"
+                className="absolute bottom-0 right-0 translate-x-1/4 translate-y-1/4 w-64 h-64 sm:w-80 sm:h-80 lg:w-[350px] lg:h-[350px] z-0 sm:z-auto"
                 onContextMenu={(e) => e.preventDefault()}
               />
             </div>
@@ -111,7 +111,7 @@ const About: React.FC = () => {
           {/* 4. Dernière carte seule - Bleu Très Clair */}
           <div className="p-4 sm:p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {/* Texte à gauche */}
-            <div className="max-w-md order-2 lg:order-1">
+            <div className="max-w-md order-2 lg:order-1 relative z-10 lg:z-auto">
               <h3
                 className={`${archivo.className} text-lg sm:text-xl font-semibold card-text-dark mb-3`}
               >
@@ -125,7 +125,7 @@ const About: React.FC = () => {
             </div>
 
             {/* Notifications à droite */}
-            <div className="relative h-64 sm:h-72 order-1 lg:order-2">
+            <div className="relative h-64 sm:h-72 order-1 lg:order-2 z-0 lg:z-auto">
               {/* 1ère notif en haut à droite */}
               <div className="absolute top-0 right-2 sm:right-4 trader-notification">
                 <TraderNotification

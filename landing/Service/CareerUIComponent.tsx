@@ -75,7 +75,7 @@ const CareerUIComponent: React.FC = () => {
     <div id="services" className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8" style={{background: 'radial-gradient(125% 125% at 50% 90%, #fff 40%, #3b82f6 100%)'}}>
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:h-[600px] rounded-xl overflow-hidden bg-white">
         {/* Left side - Text */}
-        <div className="w-full lg:w-4/5 bg-white p-6 sm:p-8 lg:p-12 flex flex-col justify-between">
+        <div className="w-full lg:w-4/5 bg-white p-6 pb-12 sm:p-8 sm:pb-8 lg:p-12 flex flex-col justify-between">
           {/* Sous-titre */}
           <p
             className={`${archivo.className} text-xs sm:text-sm text-blue-500 mb-3 sm:mb-4 tracking-wider`}
