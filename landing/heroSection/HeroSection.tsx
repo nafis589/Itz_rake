@@ -7,7 +7,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { Youtube } from "lucide-react";
 import { motion } from "framer-motion";
-
 const archivo = Archivo({ subsets: ["latin"], weight: ["400", "700"] });
 
 const HeroSection: React.FC = () => {
@@ -77,7 +76,7 @@ const HeroSection: React.FC = () => {
       <div className="relative z-10">
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-12 lg:pb-16">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 lg:pt-37 pb-8 sm:pb-12 lg:pb-16">
         <div className="flex flex-col items-center gap-8 sm:gap-12 text-center">
           {/* Texte */}
           <div className="text-center">

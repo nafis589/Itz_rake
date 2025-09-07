@@ -72,7 +72,7 @@ const CareerUIComponent: React.FC = () => {
   };
 
   return (
-    <div id="services" className="min-h-screen p-4 sm:p-6 lg:p-8">
+    <div id="services" className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8" style={{background: 'radial-gradient(125% 125% at 50% 90%, #fff 40%, #3b82f6 100%)'}}>
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:h-[600px] rounded-xl overflow-hidden bg-white">
         {/* Left side - Text */}
         <div className="w-full lg:w-4/5 bg-white p-6 sm:p-8 lg:p-12 flex flex-col justify-between">
@@ -87,7 +87,9 @@ const CareerUIComponent: React.FC = () => {
           <h1
             className={`${archivo.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-brand-primary mb-6 sm:mb-8 lg:mb-12 leading-tight`}
           >
-            <span id="formation" className="block">Découvrez nos</span>
+            <span id="formation" className="block">
+              Découvrez nos
+            </span>
             
             <span className="relative leading-tight inline-block">
               <span className="relative z-10">services</span>
@@ -107,14 +109,14 @@ const CareerUIComponent: React.FC = () => {
         </div>
 
         {/* Right side - Carousel */}
-        <div className="w-full lg:w-1/2 bg-brand-light p-6 sm:p-8 lg:p-12 relative flex flex-col items-center justify-center min-h-[400px] lg:min-h-auto">
+        <div className="w-full lg:w-1/2 bg-brand-light p-4 sm:p-6 lg:p-12 relative flex flex-col items-center justify-center min-h-[350px] sm:min-h-[400px] lg:min-h-auto">
           <div className="overflow-hidden w-full">
             <div
               className="flex transition-transform duration-500 ease-in-out lg:justify-start justify-center"
             >
               {/* Sur mobile/tablette, afficher seulement la carte active */}
               <div className="block lg:hidden w-full max-w-sm mx-auto">
-                <div className="card-brand p-4 sm:p-6 min-h-[260px] w-full">
+                <div className="card-brand p-4 sm:p-6 min-h-[240px] sm:min-h-[260px] w-full">
                   {/* Card counter */}
                   <div className="text-sm text-blue-500 font-mono text-right">
                     {cards[currentIndex].count}

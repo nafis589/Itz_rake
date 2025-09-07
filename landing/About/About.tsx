@@ -1,116 +1,15 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Image from "next/image";
 import { Archivo } from "next/font/google";
 import TraderNotification from "@/components/ui/TraderNotification";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// Register ScrollTrigger plugin
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 const archivo = Archivo({ subsets: ["latin"], weight: ["400", "700"] });
 
 const About: React.FC = () => {
-  const phoneImageRef = useRef<HTMLDivElement>(null);
-  const umbrellaImageRef = useRef<HTMLImageElement>(null);
-  const earthImageRef = useRef<HTMLImageElement>(null);
-  const notificationsRef = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Animation 1: Phone image - slide up from bottom
-      if (phoneImageRef.current) {
-        gsap.set(phoneImageRef.current, { y: 100, opacity: 0 });
-        
-        gsap.to(phoneImageRef.current, {
-          y: 0,
-          opacity: 1,
-          duration: 1.2,
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: phoneImageRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse"
-          }
-        });
-      }
-
-      // Animation 2: Umbrella image - slide up from bottom with rotation
-      if (umbrellaImageRef.current) {
-        gsap.set(umbrellaImageRef.current, { y: 120, opacity: 0, rotation: -15, scale: 0.9 });
-        
-        gsap.to(umbrellaImageRef.current, {
-          y: 0,
-          opacity: 1,
-          rotation: 0,
-          scale: 1,
-          duration: 1.3,
-          ease: "back.out(1.4)",
-          scrollTrigger: {
-            trigger: umbrellaImageRef.current,
-            start: "top 80%",
-            end: "bottom 20%",
-            toggleActions: "play none none reverse"
-          }
-        });
-      }
-
-      // Animation 3: Earth image - slide in from bottom-right (partial visibility)
-      if (earthImageRef.current) {
-        gsap.set(earthImageRef.current, { x: 100, y: 100, opacity: 0, scale: 0.8 });
-        
-        gsap.to(earthImageRef.current, {
-          x: 0,
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 1.4,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: earthImageRef.current,
-            start: "top 85%",
-            end: "bottom 15%",
-            toggleActions: "play none none reverse"
-          }
-        });
-      }
-
-      // Animation 4: Trader notifications - appear consecutively
-      if (notificationsRef.current) {
-        const notifications = notificationsRef.current.querySelectorAll('.trader-notification');
-        
-        gsap.set(notifications, { y: 30, opacity: 0, scale: 0.9 });
-        
-        gsap.to(notifications, {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 0.6,
-          stagger: {
-            amount: 1.5, // Total time for all animations
-            from: "start"
-          },
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: notificationsRef.current,
-            start: "top 75%",
-            end: "bottom 25%",
-            toggleActions: "play none none reverse"
-          }
-        });
-      }
-    }, containerRef);
-
-    return () => ctx.revert(); // Cleanup
-  }, []);
 
   return (
-    <div id="about" className="min-h-screen py-8 sm:py-12 px-4 flex items-center justify-center" ref={containerRef}>
+    <div id="about" className="min-h-screen py-8 sm:py-12 px-4 flex items-center justify-center" style={{background: 'radial-gradient(125% 125% at 50% 10%, #fff 40%, #3b82f6 100%)'}}>
       {/* Container centrée avec border-radius */}
       <div className="bg-brand-light text-black rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 max-w-6xl w-full">
         {/* Header Section */}
@@ -118,14 +17,10 @@ const About: React.FC = () => {
           <div className={`${archivo.className} badge-brand mb-4 sm:mb-6`}>
             À propos
           </div>
-          <h1
-            className={`${archivo.className} text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-3 sm:mb-4`}
-          >
+          <h1 className={`${archivo.className} text-2xl sm:text-3xl lg:text-4xl font-bold text-black mb-3 sm:mb-4`}>
             Un Trader Expérimenté et Transparent
           </h1>
-          <p
-            className={`${archivo.className} text-black text-base sm:text-lg max-w-2xl mx-auto leading-relaxed`}
-          >
+          <p className={`${archivo.className} text-black text-base sm:text-lg max-w-2xl mx-auto leading-relaxed`}>
             Avec plus de 10 ans d&apos;expérience sur les marchés financiers, Rake
             Evrard aide les investisseurs à développer leur capital grâce à une
             approche rigoureuse, disciplinée et orientée résultats.
@@ -151,7 +46,7 @@ const About: React.FC = () => {
             </div>
 
             {/* Espace réservé pour l'image à droite */}
-            <div className="flex justify-center items-center order-1 md:order-2" ref={phoneImageRef}>
+            <div className="flex justify-center items-center order-1 md:order-2">
               <Image
                 src="/phone.svg"
                 alt="phone"
@@ -179,7 +74,6 @@ const About: React.FC = () => {
                 </p>
               </div>
               <Image
-                ref={umbrellaImageRef}
                 src="/umbrella.svg"
                 width={250}
                 height={250}
@@ -204,7 +98,6 @@ const About: React.FC = () => {
               </div>
 
               <Image
-                ref={earthImageRef}
                 src="/earth.svg"
                 width={300}
                 height={300}
@@ -232,7 +125,7 @@ const About: React.FC = () => {
             </div>
 
             {/* Notifications à droite */}
-            <div className="relative h-64 sm:h-72 order-1 lg:order-2" ref={notificationsRef}>
+            <div className="relative h-64 sm:h-72 order-1 lg:order-2">
               {/* 1ère notif en haut à droite */}
               <div className="absolute top-0 right-2 sm:right-4 trader-notification">
                 <TraderNotification

@@ -21,11 +21,11 @@ const CalendarDay: React.FC<{ day: number | string; isHeader?: boolean }> = ({
 
   return (
     <div
-      className={`col-span-1 row-span-1 flex h-8 w-8 items-center justify-center ${
-        isHeader ? "" : "rounded-xl"
+      className={`col-span-1 row-span-1 flex h-6 w-6 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 items-center justify-center ${
+        isHeader ? "" : "rounded-lg sm:rounded-xl"
       } ${bgClass}`}
     >
-      <span className={`font-medium ${isHeader ? "text-xs" : "text-sm"}`}>
+      <span className={`font-medium ${isHeader ? "text-[10px] sm:text-xs" : "text-xs sm:text-sm md:text-base"}`}>
         {day}
       </span>
     </div>
@@ -55,7 +55,7 @@ export function Calendar() {
       ...Array(firstDayOfWeek).map((_, i) => (
         <div
           key={`empty-start-${i}`}
-          className="col-span-1 row-span-1 h-8 w-8"
+          className="col-span-1 row-span-1 h-6 w-6 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10"
         />
       )),
       ...Array(daysInMonth)
@@ -68,33 +68,41 @@ export function Calendar() {
 
   return (
     <BentoCard height="h-auto" linkTo={bookingLink}>
-      <div className=" grid h-full  gap-5">
-        <div className="">
-          <h2 className={`${archivo.className} mb-4 text-lg md:text-3xl font-semibold text-brand-primary`}>
+      <div className="flex flex-col lg:grid lg:grid-cols-2 h-full gap-4 sm:gap-6 lg:gap-8">
+        {/* Section texte */}
+        <div className="flex flex-col justify-center">
+          <h2 className={`${archivo.className} mb-2 sm:mb-4 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-brand-primary leading-tight`}>
             Des questions sur le trading ?
           </h2>
-          <p className={`${archivo.className} mb-2 text-xs md:text-md text-brand-muted`}>
+          <p className={`${archivo.className} mb-3 sm:mb-4 text-xs sm:text-sm md:text-base text-brand-muted`}>
             N&apos;hésitez pas à me contacter !
           </p>
-          <Button className="btn-primary mt-3 rounded-2xl">Réserver maintenant</Button>
+          <Button className="btn-primary rounded-2xl text-xs sm:text-sm md:text-base py-2 sm:py-3 px-4 sm:px-6 w-fit">
+            Réserver maintenant
+          </Button>
         </div>
-        <div className=" transition-all duration-500 ease-out md:group-hover:-right-12 md:group-hover:top-5">
-          <div>
-            <div className="h-full w-[550px] rounded-[24px] border border-slate-200 p-2 transition-colors duration-100 group-hover:border-blue-400">
+
+        {/* Section calendrier */}
+        <div className="flex justify-center lg:justify-end items-center">
+          <div className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[420px] xl:max-w-[480px]">
+            <div className="rounded-2xl sm:rounded-3xl border border-slate-200 p-2 sm:p-3 transition-colors duration-100 group-hover:border-blue-400">
               <div
-                className="h-full rounded-2xl border-2 border-[#A5AEB81F]/10  p-3"
+                className="rounded-xl sm:rounded-2xl border-2 border-[#A5AEB81F]/10 p-2 sm:p-3 md:p-4"
                 style={{ boxShadow: "0px 2px 1.5px 0px #A5AEB852 inset" }}
               >
-                <div className="flex items-center space-x-2">
-                  <p className="text-sm text-brand-primary">
-                    <span className="font-medium">
+                {/* En-tête du calendrier */}
+                <div className="flex items-center justify-between mb-3 sm:mb-4">
+                  <div className="flex items-center space-x-1 sm:space-x-2">
+                    <p className="text-xs sm:text-sm md:text-base text-brand-primary font-medium">
                       {currentMonth}, {currentYear}
-                    </span>
-                  </p>
-                  <span className="h-1 w-1 rounded-full bg-brand-muted">&nbsp;</span>
-                  <p className="text-xs text-brand-muted">30 min session</p>
+                    </p>
+                    <span className="h-1 w-1 rounded-full bg-brand-muted"></span>
+                    <p className="text-[10px] sm:text-xs md:text-sm text-brand-muted">30 min</p>
+                  </div>
                 </div>
-                <div className="mt-4 grid grid-cols-7 grid-rows-5 gap-2 px-4">
+
+                {/* Grille du calendrier */}
+                <div className="grid grid-cols-7 gap-1 sm:gap-2 md:gap-3">
                   {renderCalendarDays()}
                 </div>
               </div>
@@ -129,15 +137,15 @@ export function BentoCard({
 }: BentoCardProps) {
   const cardContent = (
     <div
-      className={`group relative flex flex-col rounded-2xl border border-slate-200 bg-white p-6 hover:bg-blue-50/50 ${
+      className={`group relative flex flex-col rounded-xl sm:rounded-2xl border border-slate-200 bg-white p-3 sm:p-4 md:p-5 lg:p-6 hover:bg-blue-50/50 transition-all duration-200 ${
         hideOverflow && "overflow-hidden"
       } ${height} row-span-${rowSpan} col-span-${colSpan} ${className}`}
       style={{boxShadow: 'var(--shadow-brand)'}}
     >
       {linkTo && (
-        <div className="absolute bottom-4 right-6 z-[999] flex h-12 w-12 rotate-6 items-center justify-center rounded-full bg-white opacity-0 transition-all duration-300 ease-in-out group-hover:translate-y-[-8px] group-hover:rotate-0 group-hover:opacity-100">
+        <div className="absolute bottom-2 right-2 sm:bottom-4 sm:right-4 lg:bottom-6 lg:right-6 z-[999] flex h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 rotate-6 items-center justify-center rounded-full bg-white opacity-0 transition-all duration-300 ease-in-out group-hover:translate-y-[-4px] sm:group-hover:translate-y-[-6px] lg:group-hover:translate-y-[-8px] group-hover:rotate-0 group-hover:opacity-100">
           <svg
-            className="h-6 w-6 text-brand-primary"
+            className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-brand-primary"
             width="24"
             height="24"
             fill="none"

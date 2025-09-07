@@ -6,8 +6,17 @@ const archivo = Archivo({ subsets: ["latin"], weight: ["400", "700"] })
 
 const CalenderSection = () => {
   return (
-    <section id="contact" className="bg-white py-12 sm:py-16 px-4">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen w-full relative">
+      {/* Radial Gradient Background from Bottom */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background: "radial-gradient(125% 125% at 50% 90%, #fff 40%, #3b82f6 100%)",
+        }}
+      />
+      
+      <section id="contact" className="relative z-10 py-12 sm:py-16 px-4">
+        <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-8 sm:mb-12">
           <div className="badge-brand mb-4 sm:mb-6">
@@ -29,6 +38,7 @@ const CalenderSection = () => {
         </div>
       </div>
     </section>
+    </div>
   )
 }
 
